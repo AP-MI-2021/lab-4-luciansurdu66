@@ -32,16 +32,37 @@ def test_number_in_list():
     assert number_in_list([2, 32, 122, 12, 1456], 12, 4) == 'NU'
 
 
+# P3
+
+
+def sum_of_even_int(lst: list[int]) -> int:
+    """
+    Afiseaza suma tuturor numerelor intregi pare din lista
+    :param lst: lista de numere intregi
+    :return: suma tuturor numerelor intregi pare
+    """
+    sumapare = 0
+    for x in lst:
+        if x % 2 == 0:
+            sumapare += x
+    return sumapare
+
+
+def test_sum_of_even_int():
+    assert sum_of_even_int([2, 3, 12, 5, 9]) == 14
+    assert sum_of_even_int([1, 15, 5, 9]) == 0
+
 def test_all():
     test_number_in_list()
-
+    test_sum_of_even_int()
 
 def main():
     test_all()
     lst = []
     while True:
         print("1. Citire lista de numere intregi")
-        print("2. -")
+        print("2. Verificati daca un numar se regaseste in lista incepand de la o anumita pozitie")
+        print("3. Calculeaza suma tuturor numerelor intregi pare din lista")
         print("x. Iesire")
         optiune = input(" Alegeti optiunea din meniu: ")
         if optiune == '1':
@@ -50,6 +71,10 @@ def main():
             numar = int(input("Dati un numar"))
             pozitie = int(input("Dati o pozitie"))
             print(number_in_list(lst, numar, pozitie))
+        elif optiune == '3':
+            print(sum_of_even_int(lst))
+        elif optiune == '4':
+            pass
         elif optiune == 'x':
             break
         else:
