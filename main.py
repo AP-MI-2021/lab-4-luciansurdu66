@@ -84,15 +84,21 @@ def swap_numbers_with_sum(lst: list[int]):
     :param lst: lista de numere intregi
     :return: lista cu tuple
     """
-    newlist = []
-    for x in lst:
-        
+    newlist = lst[:]
+    for i in range(0, len(lst) - 1):
+        for y in lst:
+            diferenta = lst[i] - y
+            if diferenta in lst and diferenta != y:
+                newlist[i] = (y, diferenta)
     return newlist
 
 
 def test_swap_numbers_with_sum():
-    assert swap_numbers_with_sum([4, 8, 6, 3, 2, 1]) == [(3, 1), (6,2), (4, 2), (1, 2), 2, 1]
+    assert swap_numbers_with_sum([4, 8, 6, 3, 2, 1]) == [(1, 3), (2, 6), (2, 4), (1, 2), 2, 1]
+    assert swap_numbers_with_sum([2, 3, 12, 5, 9]) == [2, 3, (9, 3), (3, 2), 9]
+    assert swap_numbers_with_sum([1, 1, 0]) == [(0, 1), (0, 1), 0]
 
+    
 def test_all():
     test_number_in_list()
     test_sum_of_even_int()
