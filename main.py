@@ -77,7 +77,7 @@ def test_show_even_numbers():
 # P5
 
 
-def swap_numbers_with_sum(lst: list[int]):
+def swap_numbers_with_sum(lst):
     """
     Afiseaza lista obtinuta prin inlocuirea fiecarui numar cu un tuplu format din doua numere de pe
      pozitii distincte din lista care adunate dau acel numar
@@ -98,12 +98,18 @@ def test_swap_numbers_with_sum():
     assert swap_numbers_with_sum([2, 3, 12, 5, 9]) == [2, 3, (9, 3), (3, 2), 9]
     assert swap_numbers_with_sum([1, 1, 0]) == [(0, 1), (0, 1), 0]
 
-    
+
+# Teste
+
+
 def test_all():
     test_number_in_list()
     test_sum_of_even_int()
     test_show_even_numbers()
     test_swap_numbers_with_sum()
+
+
+# Meniu
 
 
 def main():
